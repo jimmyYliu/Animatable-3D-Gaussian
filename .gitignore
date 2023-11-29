@@ -2,5 +2,5 @@
 __pycache__/
 build/
 outputs
-data/*
+data/
 *.egg-info/

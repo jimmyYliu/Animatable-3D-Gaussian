@@ -32,31 +32,6 @@ def PILtoTorch(pil_image, resolution):
         return resized_image.unsqueeze(dim=-1).permute(2, 0, 1)
 
 
-def euler_to_quaternion(rad_x, rad_y, rad_z):
-    xOver2 = rad_x * 0.5
-    yOver2 = rad_y * 0.5
-    zOver2 = rad_z * 0.5
-
-    sinXOver2 = math.sin(xOver2)
-    cosXOver2 = math.cos(xOver2)
-    sinYOver2 = math.sin(yOver2)
-    cosYOver2 = math.cos(yOver2)
-    sinZOver2 = math.sin(zOver2)
-    cosZOver2 = math.cos(zOver2)
-
-    result = torch.zeros(4)
-    result[0] = cosYOver2 * sinXOver2 * \
-        cosZOver2 + sinYOver2 * cosXOver2 * sinZOver2
-    result[1] = sinYOver2 * cosXOver2 * \
-        cosZOver2 - cosYOver2 * sinXOver2 * sinZOver2
-    result[2] = cosYOver2 * cosXOver2 * \
-        sinZOver2 - sinYOver2 * sinXOver2 * cosZOver2
-    result[3] = cosYOver2 * cosXOver2 * \
-        cosZOver2 + sinYOver2 * sinXOver2 * sinZOver2
-
-    return result
-
-
 def matrix_TRS(position, rotation, scale):
 
     num = rotation[0] * 2.0

@@ -1,4 +1,4 @@
-# AnimatableGaussian
+# Animatable 3D Gaussian
 
 ## Prerequisites
 
