@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="description" content="">
+  <meta name="keywords" content="NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Animatable 3D Gaussian: Fast and High-Quality Reconstruction of Multiple Human Avatars</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Animatable 3D Gaussian: Fast and High-Quality Reconstruction of
+              Multiple Human Avatars
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"> <a href="#">Yang Liu*</a><sup>1</sup>,</span>
+              <span class="author-block"> <a href="https://ait.ethz.ch/people/xu/">Xiang
+                  Huang*</a><sup>1,2</sup>,</span>
+              <span class="author-block"> <a href="https://ait.ethz.ch/people/song/">Minghan Qin</a><sup>1</sup>,</span>
+              <span class="author-block"> <a href="https://ait.ethz.ch/people/hilliges/">Qinwei
+                  Lin</a><sup>1</sup></span>
+              <span class="author-block"> <a href="https://ait.ethz.ch/people/hilliges/">Haoqian
+                  Wang</a><sup>1</sup></span>
+            </div>
+
+            <div class="is-size-5">
+              *Equal Contribution
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Tsinghua University,</span>
+              <span class="author-block"><sup>2</sup>Gala Sports</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2311.16482.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=413yuZEPjuc"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/tijiang13/InstantAvatar"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./contains/cover.png" class="center" />
+        <h2 class="subtitle has-text-centered">
+          We propose Animatable 3D Gaussian, a novel neural representation for <b>fast</b> and <b>high-fidelity</b>
+          reconstruction of <b>multiple</b> animatable human avatars, which can animate and render the model at
+          <b>interactive rate</b>.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>Neural radiance fields are capable of reconstructing high-quality drivable human avatars but are
+              expensive to train and render. To reduce consumption, we propose Animatable 3D Gaussian, which learns
+              human avatars from input images and poses. We extend 3D Gaussians to dynamic human scenes by modeling a
+              set of skinned 3D Gaussians and a corresponding skeleton in canonical space and deforming 3D Gaussians to
+              posed space according to the input poses. We introduce hash-encoded shape and appearance to speed up
+              training and propose time-dependent ambient occlusion to achieve high-quality reconstructions in scenes
+              containing complex motions and dynamic shadows. On both novel view synthesis and novel pose synthesis
+              tasks, our method outperforms existing methods in terms of training time, rendering speed, and
+              reconstruction quality. Our method can be easily extended to multi-human scenes and achieve comparable
+              novel view synthesis results on a scene with ten people in only 25 seconds of training.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/413yuZEPjuc"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Method</h2>
+      <img src="./images/method.jpg" height="250" class="center" />
+      <p>For each frame, we sample points along the rays in posed space. We then transform these points into a
+        normalized space where we remove the global orientation and translation of the person. In this normalized space,
+        we filter points in empty space using our occupancy grid. The remaining points are deformed to canonical space
+        using an articulation module and then fed into the canonical neural radiance field to evaluate the color and
+        density.</p>
+    </div>
+  </section>
+
+
+  <section class="section" id="result">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Result</h2>
+      <h3 class="title">Training progression</h2>
+        <img src="./gifs/progression.gif" style="margin: auto; display: block;" />
+        <h3 class="title">Novel View</h2>
+          <div class="columns is-max-desktop content">
+            <img class="preload" src="./gifs/rotation-m3c.gif" width="240" height="240" />
+            <img class="preload" src="./gifs/rotation-f3c.gif" width="240" height="240" />
+            <img class="preload" src="./gifs/rotation-m4c.gif" width="240" height="240" />
+            <img class="preload" src="./gifs/rotation-f4c.gif" width="240" height="240" />
+          </div>
+          <h3 class="title">Novel Animation</h2>
+            <div class="columns is-max-desktop content">
+              <img class="preload" src="./gifs/anim-m3c.gif" width="240" height="240" />
+              <img class="preload" src="./gifs/anim-m3s.gif" width="240" height="240" />
+              <img class="preload" src="./gifs/anim-m2c.gif" width="240" height="240" />
+              <img class="preload" src="./gifs/anim-f4c.gif" width="240" height="240" />
+            </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{liu2023animatable,
+        title={Animatable 3D Gaussian: Fast and High-Quality Reconstruction of Multiple Human Avatars}, 
+        author={Yang Liu and Xiang Huang and Minghan Qin and Qinwei Lin and Haoqian Wang},
+        year={2023},
+        eprint={2311.16482},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV}
+  }</code></pre>
+    </div>
+  </section>
+
+</body>
+
+</html>
