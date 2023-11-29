@@ -148,11 +148,14 @@
     <div class="container is-max-desktop content">
       <h2 class="title">Method</h2>
       <img src="./content/method.png" class="center" />
-      <p>For each frame, we sample points along the rays in posed space. We then transform these points into a
-        normalized space where we remove the global orientation and translation of the person. In this normalized space,
-        we filter points in empty space using our occupancy grid. The remaining points are deformed to canonical space
-        using an articulation module and then fed into the canonical neural radiance field to evaluate the color and
-        density.</p>
+      <p>The proposed animatable 3D Gaussian consists of a set of skinned 3D Gaussians and a corresponding canonical
+        skeleton. Each skinned 3D Gaussian contains center x<sub>0</sub>, rotation R, scale S, opacity
+        &alpha;<sub>0</sub>, and skinning weights w. First, we sample spherical harmonic coefficients SH, vertex
+        displacement &delta;<sub>x</sub>, and ambient occlusion ao from the hash-encoded parameter field according to
+        the center x<sub>0</sub>, where the multilayer perceptron for ao requires an additional frequency encoded time
+        &gamma;(t) as input. Next, we concatenate the sampled parameters, the original parameters, and a shifted center
+        x<sub>0</sub>' in canonical space. Finally, we deform 3D Gaussians to the posed space according to the input
+        pose S<sub>t</sub>,T<sub>t</sub> and render them to the image using 3D Gaussian rasterization.</p>
     </div>
   </section>
 
@@ -160,22 +163,40 @@
   <section class="section" id="result">
     <div class="container is-max-desktop content">
       <h2 class="title">Result</h2>
-      <h3 class="title">Training progression</h2>
-        <img src="./gifs/progression.gif" style="margin: auto; display: block;" />
+      <h3 class="title">Training</h2>
+        <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+          <source src="content/train.mp4" type="video/mp4">
+        </video>
         <h3 class="title">Novel View</h2>
           <div class="columns is-max-desktop content">
-            <img class="preload" src="./gifs/rotation-m3c.gif" width="240" height="240" />
-            <img class="preload" src="./gifs/rotation-f3c.gif" width="240" height="240" />
-            <img class="preload" src="./gifs/rotation-m4c.gif" width="240" height="240" />
-            <img class="preload" src="./gifs/rotation-f4c.gif" width="240" height="240" />
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="content/train.mp4" type="video/mp4">
+            </video>
           </div>
-          <h3 class="title">Novel Animation</h2>
+        <h3 class="title">Novel Pose</h2>
+          <div class="columns is-max-desktop content">
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="content/train.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h3 class="title">Double-Human Scene</h2>
             <div class="columns is-max-desktop content">
-              <img class="preload" src="./gifs/anim-m3c.gif" width="240" height="240" />
-              <img class="preload" src="./gifs/anim-m3s.gif" width="240" height="240" />
-              <img class="preload" src="./gifs/anim-m2c.gif" width="240" height="240" />
-              <img class="preload" src="./gifs/anim-f4c.gif" width="240" height="240" />
+              <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="content/train.mp4" type="video/mp4">
+              </video>
             </div>
+            <h3 class="title">Multi-Human Scene</h2>
+              <div class="columns is-max-desktop content">
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="content/train.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h3 class="title">Free-Viewpoint</h2>
+                <div class="columns is-max-desktop content">
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="content/train.mp4" type="video/mp4">
+                  </video>
+                </div>
     </div>
   </section>
 
