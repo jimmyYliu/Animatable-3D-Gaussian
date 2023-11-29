@@ -1,0 +1,29 @@
+_target_: animatableGaussian.dataset.galaBasketball.GalaBasketballDataModule
+name: galaBasketball0
+num_workers: ${num_workers}
+num_players: 1
+opt:
+  dataroot: ../../data/Gala/basketball0
+  max_freq: ${max_freq}
+  with_mask: False
+  train:
+    # provides parameters needed to split the train set
+    camera_ids: 0,1,2,3,4,5
+    start: 0
+    end: 100
+    skip: 2
+    
+  val:
+    # provides parameters needed to split the val set
+    camera_ids: 0
+    start: 0
+    end: 0
+    skip: 2
+    
+  test:
+    # provides parameters needed to split the test set
+    camera_ids: 6
+    start: 0
+    end: 100
+    skip: 2
+    

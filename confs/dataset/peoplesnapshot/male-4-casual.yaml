@@ -1,0 +1,24 @@
+_target_: animatableGaussian.dataset.peoplesnapshot.PeopleSnapshotDataModule
+name: peoplesnapshot-male-4-casual
+num_workers: ${num_workers}
+gender: male
+subject: male-4-casual
+num_players: 1
+opt:
+  dataroot: ../../data/PeopleSnapshot/${dataset.subject}
+  max_freq: ${max_freq}
+  train:
+    start: 0
+    end: 659
+    skip: 6
+    downscale: 2
+  val:
+    start: 660
+    end: 660
+    skip: 6
+    downscale: 2
+  test:
+    start: 660
+    end: 872
+    skip: 6
+    downscale: 2

@@ -1,0 +1,9 @@
+_target_: animatableGaussian.deformer.gala_model.GalaModel
+model_path: ../../data/Gala/model
+num_players: ${dataset.num_players}
+max_sh_degree: ${max_sh_degree}
+max_freq: ${max_freq}
+use_point_color: ${use_point_color}
+use_point_displacement: ${use_point_displacement}
+enable_ambient_occlusion: ${enable_ambient_occlusion}
+encoder_type: ${encoder_type}
