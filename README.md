@@ -1,6 +1,6 @@
 # Animatable 3D Gaussian
 Yang Liu*, Xiang Huang*, Minghan Qin, Qinwei Lin, Haoqian Wang (* indicates equal contribution)<br>
-| [Webpage](https://jimmyyliu.github.io/Animatable3DGaussian/) | [Full Paper](https://arxiv.org/pdf/2311.16482.pdf) | [Video](https://www.youtube.com/watch?v=BPmeEP65k2c)
+| [Webpage](https://jimmyyliu.github.io/Animatable-3D-Gaussian/) | [Full Paper](https://arxiv.org/pdf/2311.16482.pdf) | [Video](https://www.youtube.com/watch?v=BPmeEP65k2c)
 
 ## Prerequisites
 
