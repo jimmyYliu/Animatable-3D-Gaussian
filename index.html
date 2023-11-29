@@ -36,9 +36,9 @@
               Multiple Human Avatars
             </h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block"> <a href="#">Yang Liu*</a><sup>1</sup>,</span>
+              <span class="author-block"> <a href="#">Yang Liu</a><sup>1*</sup>,</span>
               <span class="author-block"> <a href="https://ait.ethz.ch/people/xu/">Xiang
-                  Huang*</a><sup>1,2</sup>,</span>
+                  Huang</a><sup>1,2*</sup>,</span>
               <span class="author-block"> <a href="https://ait.ethz.ch/people/song/">Minghan Qin</a><sup>1</sup>,</span>
               <span class="author-block"> <a href="https://ait.ethz.ch/people/hilliges/">Qinwei
                   Lin</a><sup>1</sup></span>
@@ -69,7 +69,7 @@
                 </span>
                 <!-- Video Link. -->
                 <span class="link-block">
-                  <a href="https://www.youtube.com/watch?v=413yuZEPjuc"
+                  <a href="https://www.youtube.com/watch?v=BPmeEP65k2c"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -98,7 +98,7 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="./contains/cover.png" class="center" />
+        <img src="./content/cover.png" class="center" />
         <h2 class="subtitle has-text-centered">
           We propose Animatable 3D Gaussian, a novel neural representation for <b>fast</b> and <b>high-fidelity</b>
           reconstruction of <b>multiple</b> animatable human avatars, which can animate and render the model at
@@ -135,8 +135,7 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Video</h2>
           <div class="publication-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/413yuZEPjuc"
-              title="YouTube video player" frameborder="0"
+            <iframe src="https://www.youtube.com/watch?v=BPmeEP65k2c" title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
@@ -148,7 +147,7 @@
   <section class="section" id="method">
     <div class="container is-max-desktop content">
       <h2 class="title">Method</h2>
-      <img src="./images/method.jpg" height="250" class="center" />
+      <img src="./content/method.png" class="center" />
       <p>For each frame, we sample points along the rays in posed space. We then transform these points into a
         normalized space where we remove the global orientation and translation of the person. In this normalized space,
         we filter points in empty space using our occupancy grid. The remaining points are deformed to canonical space
