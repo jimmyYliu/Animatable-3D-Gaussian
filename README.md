@@ -9,7 +9,7 @@ Abstract: *Neural radiance fields are capable of reconstructing high-quality dri
 
 ## Prerequisites
 
-* Cuda 11.6
+* Cuda 11.7
 * Conda
 * A C++14 capable compiler
   * __Windows:__ Visual Studio 2019 or 2022

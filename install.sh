@@ -1,4 +1,4 @@
-pip install torch==1.13.1+cu116 torchvision --index-url https://download.pytorch.org/whl/cu116
+pip install torch==1.13.1+cu117 torchvision --index-url https://download.pytorch.org/whl/cu117
 pip install hydra-core==1.3.2
 pip install pytorch-lightning==2.1.2
 pip install imageio
