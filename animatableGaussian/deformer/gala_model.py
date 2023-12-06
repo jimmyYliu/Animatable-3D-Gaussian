@@ -3,7 +3,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 from simple_knn._C import distCUDA2
-from scipy.spatial.transform import Rotation as R
 from animatableGaussian.deformer.encoder.position_encoder import SHEncoder, DisplacementEncoder
 from animatableGaussian.deformer.encoder.time_encoder import AOEncoder
 
