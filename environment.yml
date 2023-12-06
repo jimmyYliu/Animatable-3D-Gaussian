@@ -1,0 +1,19 @@
+name: anim-gaussian
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pytorch=1.13.1
+  - cudatoolkit=11.6
+  - torchvision=0.14.1
+  - hydra-core=1.3.2
+  - pytorch-lightning
+  - imageio
+  - tqdm
+  - pip
+  - pip:
+    - git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+    - submodules/diff-gaussian-rasterization
+    - submodules/simple-knn

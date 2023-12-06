@@ -23,12 +23,17 @@ class SMPLModel(nn.Module):
         self.use_point_color = use_point_color
 
         smpl_path = os.path.join(
-            model_path, 'SMPL_{}.{ext}'.format(gender.upper(), ext='pkl'))
-        with open(smpl_path, 'rb') as smpl_file:
-            smpl = pickle.load(smpl_file, encoding='latin1')
-
+            model_path, 'SMPL_{}'.format(gender.upper()))
+        v_template = np.loadtxt(os.path.join(
+            smpl_path, 'v_template.txt'))
+        weights = np.loadtxt(os.path.join(
+            smpl_path, 'weights.txt'))
+        kintree_table = np.loadtxt(os.path.join(
+            smpl_path, 'kintree_table.txt'))
+        J = np.loadtxt(os.path.join(
+            smpl_path, 'joints.txt'))
         self.register_buffer('v_template', torch.Tensor(
-            smpl["v_template"])[None, ...].repeat(
+            v_template)[None, ...].repeat(
                 [self.num_players, 1, 1]))
         dist2 = torch.clamp_min(
             distCUDA2(self.v_template[0].cuda()), 0.0000001)[..., None].repeat([num_repeat, 3])
@@ -37,12 +42,12 @@ class SMPLModel(nn.Module):
             dist2.cpu() * 20
         dist2 /= num_repeat
         self.weights = nn.Parameter(
-            torch.Tensor(smpl["weights"]).repeat([num_repeat, 1]))
-        self.parents = smpl["kintree_table"][0].astype(np.int64)
+            torch.Tensor(weights).repeat([num_repeat, 1]))
+        self.parents = kintree_table[0].astype(np.int64)
         self.parents[0] = -1
 
         self.J = nn.Parameter(torch.Tensor(
-            smpl["J"])[None, ...].repeat([self.num_players, 1, 1]))
+            J)[None, ...].repeat([self.num_players, 1, 1]))
 
         minmax = [self.v_template[0].min(
             dim=0).values * 1.05,  self.v_template[0].max(dim=0).values * 1.05]
