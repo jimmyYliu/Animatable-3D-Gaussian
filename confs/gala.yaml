@@ -1,6 +1,6 @@
 defaults:
   - _self_
-  - dataset: gala/galaBasketball0
+  - dataset: gala/idle
   - deformer: gala_model
   
 hydra:

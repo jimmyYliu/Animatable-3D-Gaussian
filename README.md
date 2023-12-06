@@ -47,7 +47,7 @@ python3 ./train.py --config-name peoplesnapshot.yaml dataset=peoplesnapshot/male
 
 For the GalaBasketball dataset, run
 ```bash
-python3 ./train.py --config-name gala.yaml dataset=gala/galaBasketball0
+python3 ./train.py --config-name gala.yaml dataset=gala/idle
 ```
 
 ## Test

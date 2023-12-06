@@ -3,7 +3,7 @@ name: dribble
 num_workers: ${num_workers}
 num_players: 1
 opt:
-  dataroot: ../../data/Gala/basketball1
+  dataroot: ../../data/Gala/dribble
   max_freq: ${max_freq}
   with_mask: False
   train:

@@ -1,9 +1,9 @@
 _target_: animatableGaussian.dataset.galaBasketball.GalaBasketballDataModule
-name: shot
+name: block
 num_workers: ${num_workers}
-num_players: 1
+num_players: 2
 opt:
-  dataroot: ../../data/Gala/basketball2
+  dataroot: ../../data/Gala/block
   max_freq: ${max_freq}
   with_mask: False
   train:
@@ -25,5 +25,5 @@ opt:
     camera_ids: 6
     start: 0
     end: 80
-    skip: 2
+    skip: 1
     

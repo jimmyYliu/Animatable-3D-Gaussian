@@ -3,7 +3,7 @@ name: gymnastics
 num_workers: ${num_workers}
 num_players: 1
 opt:
-  dataroot: ../../data/Gala/basketball7
+  dataroot: ../../data/Gala/gymnastics
   max_freq: ${max_freq}
   with_mask: False
 
