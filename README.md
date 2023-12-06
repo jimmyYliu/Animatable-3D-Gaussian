@@ -33,7 +33,7 @@ We use PeopleSnapshot and GalaBasketball datasets and correspoding template body
 |   |---smpl
 ```
 
-## Running
+## Train
 To train a scene, run
 
 ```bash
@@ -50,12 +50,12 @@ For the GalaBasketball dataset, run
 python3 ./train.py --config-name gala.yaml dataset=gala/galaBasketball0
 ```
 
+## Test
+
 To test the model performance on the test set, run
 ```bash
 python3 ./test.py --config-name config_path=<path to main config file> dataset=<path to dataset config file>
 ```
-
-
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
