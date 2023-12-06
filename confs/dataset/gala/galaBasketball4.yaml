@@ -25,5 +25,5 @@ opt:
     camera_ids: 6
     start: 0
     end: 80
-    skip: 2
+    skip: 1
     
