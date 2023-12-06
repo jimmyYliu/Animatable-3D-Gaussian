@@ -1,5 +1,5 @@
 _target_: animatableGaussian.dataset.galaBasketball.GalaBasketballDataModule
-name: galaBasketball3
+name: turn
 num_workers: ${num_workers}
 num_players: 1
 opt:

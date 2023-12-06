@@ -1,0 +1,16 @@
+_target_: animatableGaussian.dataset.galaBasketball.GalaBasketballDataModule
+name: gymnastics
+num_workers: ${num_workers}
+num_players: 1
+opt:
+  dataroot: ../../data/Gala/basketball7
+  max_freq: ${max_freq}
+  with_mask: False
+
+  test:
+    # provides parameters needed to split the test set
+    camera_ids: 6
+    start: 0
+    end: 479
+    skip: 2
+

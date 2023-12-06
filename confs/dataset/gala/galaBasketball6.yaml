@@ -1,11 +1,10 @@
 _target_: animatableGaussian.dataset.galaBasketball.GalaBasketballDataModule
-name: galaBasketball6
+name: match
 num_workers: ${num_workers}
 num_players: 10
 opt:
   dataroot: ../../data/Gala/basketball6
   max_freq: ${max_freq}
-  num_cameras: 6
   with_mask: False
   train:
     # provides parameters needed to split the train set
