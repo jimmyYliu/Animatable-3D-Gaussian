@@ -313,9 +313,9 @@ class GalaModel(nn.Module):
         #print(is_use_ao)
         if self.enable_ambient_occlusion and is_use_ao:
             if self.encoder_type == "hash":
-                aos = self.aoEncoder(self.normalized_vertices, time)*2
+                aos = self.aoEncoder(self.normalized_vertices, time)
             else:
-                aos = self.aoEncoder(self.uvs,time)*2
+                aos = self.aoEncoder(self.uvs,time)
         else:
             aos = self.aos
 
