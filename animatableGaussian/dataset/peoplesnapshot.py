@@ -179,10 +179,13 @@ def my_collate_fn(batch):
 
 
 class PeopleSnapshotDataModule(pl.LightningDataModule):
-    def __init__(self, num_workers, opt, **kwargs):
+    def __init__(self, num_workers, opt, train=True, **kwargs):
         super().__init__()
-
-        for split in ("train", "val", "test"):
+        if train:
+            splits = ["train", "val"]
+        else:
+            splits = ["test"]
+        for split in splits:
             print(f"loading {split}set...")
             dataset = PeopleSnapshotDataset(
                 opt.dataroot, opt.max_freq, split, opt.get(split))

@@ -307,10 +307,14 @@ def my_collate_fn(batch):
 
 
 class GalaBasketballDataModule(pl.LightningDataModule):
-    def __init__(self, num_workers, num_players, opt, **kwargs):
+    def __init__(self, num_workers, num_players, opt, train=True, **kwargs):
         super().__init__()
 
-        for split in ("train", "val", "test"):
+        if train:
+            splits = ["train", "val"]
+        else:
+            splits = ["test"]
+        for split in splits:
             print(f"loading {split}set...")
             dataset = GalaBasketballDataset(
                 opt.dataroot, num_players, opt.with_mask, opt.max_freq, split, opt.get(split))

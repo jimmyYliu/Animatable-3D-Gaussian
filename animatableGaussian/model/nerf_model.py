@@ -34,6 +34,7 @@ class Evaluator(nn.Module):
 class NeRFModel(pl.LightningModule):
     def __init__(self, opt):
         super(NeRFModel, self).__init__()
+        self.save_hyperparameters()
         self.model = hydra.utils.instantiate(opt.deformer)
         self.training_args = opt.training_args
         self.sh_degree = opt.max_sh_degree

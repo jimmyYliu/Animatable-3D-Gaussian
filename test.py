@@ -7,13 +7,11 @@ import pytorch_lightning as pl
 def main(opt):
     pl.seed_everything(0)
 
-    model = NeRFModel(opt)
-    datamodule = hydra.utils.instantiate(opt.dataset)
+    model = NeRFModel.load_from_checkpoint('model.ckpt')
+    datamodule = hydra.utils.instantiate(opt.dataset, train=False)
     trainer = pl.Trainer(accelerator='gpu',
                          **opt.trainer_args)
-
-    trainer.fit(model, datamodule=datamodule)
-    trainer.save_checkpoint('model.ckpt')
+    result = trainer.test(model, datamodule=datamodule)[0]
 
 
 if __name__ == "__main__":
