@@ -42,19 +42,19 @@ python3 ./train.py --config-name config_path=<path to main config file> dataset=
 
 For the PeopleSnapshot dataset, run
 ```bash
-python3 ./train.py --config-name peoplesnapshot.yaml dataset=peoplesnapshot/male-3-casual
+python train.py --config-name peoplesnapshot.yaml dataset=peoplesnapshot/male-3-casual
 ```
 
 For the GalaBasketball dataset, run
 ```bash
-python3 ./train.py --config-name gala.yaml dataset=gala/idle
+python train.py --config-name gala.yaml dataset=gala/idle
 ```
 
 ## Test
 
 To test the model performance on the test set, run
 ```bash
-python3 ./test.py --config-name config_path=<path to main config file> dataset=<path to dataset config file>
+python test.py --config-name config_path=<path to main config file> dataset=<path to dataset config file>
 ```
 
 <section class="section" id="BibTeX">
