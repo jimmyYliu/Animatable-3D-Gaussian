@@ -15,7 +15,7 @@ opt:
     
   val:
     # provides parameters needed to split the val set
-    camera_ids: 6
+    camera_ids: 0
     start: 0
     end: 0
     skip: 2
