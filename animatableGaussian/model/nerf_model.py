@@ -45,8 +45,8 @@ class NeRFModel(pl.LightningModule):
         if not os.path.exists("test"):
             os.makedirs("test")
 
-    def forward(self, camera_params, model_param, time, render_point=False):
-        is_use_ao = self.current_epoch > 3
+    def forward(self, camera_params, model_param, time, render_point=False, train=True):
+        is_use_ao = (not train) or self.current_epoch > 3
 
         verts, opacity, scales, rotations, shs, aos, transforms = self.model(time=time, is_use_ao=is_use_ao,
                                                                              **model_param)
@@ -112,7 +112,7 @@ class NeRFModel(pl.LightningModule):
     def test_step(self, batch, batch_idx, *args, **kwargs):
         camera_params = batch["camera_params"]
         model_param = batch["model_param"]
-        rgb = self(camera_params, model_param, batch["time"])
+        rgb = self(camera_params, model_param, batch["time"], train=False)
         rgb_gt = batch["gt"]
         losses = {
             # add some extra loss here

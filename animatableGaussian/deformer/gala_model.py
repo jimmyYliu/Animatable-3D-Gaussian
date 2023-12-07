@@ -138,7 +138,7 @@ class GalaModel(nn.Module):
         self.use_point_displacement = use_point_displacement
         self.use_point_color = use_point_color
         self.encoder_type = encoder_type
-        
+
         model_file = os.path.join(model_path, "mesh.txt")
         vertices, normals, uvs, bone_weights, bone_indices = read_skinned_mesh_data(
             model_file)
@@ -149,11 +149,10 @@ class GalaModel(nn.Module):
 
         tpose_mat_file = os.path.join(model_path, "tpose_mat.txt")
         tpose_w2l_mats = read_bone_joint_mats(tpose_mat_file)
-        
 
         joint_parent_file = os.path.join(model_path, "jointParent.txt")
         self.joint_parent_idx = read_bone_parent_indices(joint_parent_file)
-        
+
         self.bone_count = tpose_positions.shape[0]
         self.vertex_count = vertices.shape[0]
 
@@ -169,7 +168,7 @@ class GalaModel(nn.Module):
 
         bone_weights = torch.Tensor(
             np.load(os.path.join(model_path, "weights.npy")))[None, ...].repeat([self.num_players, 1, 1])
-        self.register_buffer("bone_weights",bone_weights)
+        self.register_buffer("bone_weights", bone_weights)
         # self.bone_weights = nn.Parameter(
         #     bone_weights)
 
@@ -208,13 +207,10 @@ class GalaModel(nn.Module):
         rotations[:, 0] = 1
         self.rotations = nn.Parameter(rotations)
 
-
         if enable_ambient_occlusion:
             self.aoEncoder = AOEncoder(
                 encoder=encoder_type, max_freq=max_freq, num_players=num_players)
-        #else:
         self.register_buffer("aos", torch.ones_like(self.opacity))
-        #self.register_buffer("ao_ones", torch.ones_like(self.opacity))
 
     def configure_optimizers(self, training_args):
         l = [
@@ -248,7 +244,7 @@ class GalaModel(nn.Module):
                       'lr': training_args.sh_encoder_lr, "name": "shEncoder"})
         return torch.optim.Adam(l, lr=0.0, eps=1e-15)
 
-    def forward(self, body_pose, global_orient, transl, time,is_use_ao):
+    def forward(self, body_pose, global_orient, transl, time, is_use_ao):
         """
         Caculate the transforms of vertices.
 
@@ -268,10 +264,10 @@ class GalaModel(nn.Module):
             transforms (torch.Tensor[N, 3]) : 
         """
 
-        #root_mats = matrix_batch_TRS(root_transls,global_orient,root_scales)
+        # root_mats = matrix_batch_TRS(root_transls,global_orient,root_scales)
 
-        full_body_pose      = torch.cat([global_orient[:, None, :], body_pose], dim=1).cpu()
-        
+        full_body_pose = torch.cat(
+            [global_orient[:, None, :], body_pose], dim=1).cpu()
 
         transl = transl.cpu()
         J = self.J.cpu()
@@ -282,16 +278,18 @@ class GalaModel(nn.Module):
                                          3, 4], device=self.v_template.device)
         for i in range(self.num_players):
             # local to world transform
-            joint_local_mats = self.batch_rodrigues(full_body_pose[i].view(-1, 3)).view( [ -1, 4, 4])
+            joint_local_mats = self.batch_rodrigues(
+                full_body_pose[i].view(-1, 3)).view([-1, 4, 4])
 
-            joint_local_mats[ :, :3, 3] = J[i]
-            joint_local_mats[ 0, :3, 3] = transl[i]
-            
+            joint_local_mats[:, :3, 3] = J[i]
+            joint_local_mats[0, :3, 3] = transl[i]
+
             joint_world_mats = []
-            joint_world_mats.append(joint_local_mats[ 0])
-            
+            joint_world_mats.append(joint_local_mats[0])
+
             for j in range(1, self.bone_count):
-                mat = joint_world_mats[self.joint_parent_idx[j]] @  joint_local_mats[j]
+                mat = joint_world_mats[self.joint_parent_idx[j]
+                                       ] @  joint_local_mats[j]
                 joint_world_mats.append(mat)
             joint_world_mats = torch.stack(joint_world_mats, dim=0)
 
@@ -310,12 +308,12 @@ class GalaModel(nn.Module):
             else:
                 shs = self.shEncoder(self.uvs)
 
-        #print(is_use_ao)
+        # print(is_use_ao)
         if self.enable_ambient_occlusion and is_use_ao:
             if self.encoder_type == "hash":
                 aos = self.aoEncoder(self.normalized_vertices, time)
             else:
-                aos = self.aoEncoder(self.uvs,time)
+                aos = self.aoEncoder(self.uvs, time)
         else:
             aos = self.aos
 
@@ -323,17 +321,17 @@ class GalaModel(nn.Module):
             v_displaced = self.v_template + self.displacements
         else:
             if self.encoder_type == "hash":
-                displacement = self.displacementEncoder(self.normalized_vertices)
+                displacement = self.displacementEncoder(
+                    self.normalized_vertices)
             else:
                 displacement = self.displacementEncoder(self.uvs)
             v_displaced = self.v_template + displacement
 
-
-        return v_displaced.reshape([-1, 3]),\
+        return v_displaced.reshape([-1, 3]), \
             torch.sigmoid(self.opacity), \
-                torch.exp(self.scales), \
-                    torch.nn.functional.normalize(self.rotations), \
-                        shs, aos, T.reshape([-1, 3, 4])
+            torch.exp(self.scales), \
+            torch.nn.functional.normalize(self.rotations), \
+            shs, aos, T.reshape([-1, 3, 4])
 
     def rigid_transform(self, body_pose_mat, transl, J):
         """

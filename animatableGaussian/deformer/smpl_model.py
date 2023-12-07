@@ -82,8 +82,7 @@ class SMPLModel(nn.Module):
         if enable_ambient_occlusion:
             self.aoEncoder = AOEncoder(
                 encoder="hash", max_freq=max_freq, num_players=num_players)
-        else:
-            self.register_buffer("aos", torch.ones_like(self.opacity))
+        self.register_buffer("aos", torch.ones_like(self.opacity))
 
     def configure_optimizers(self, training_args):
         l = [
