@@ -3,13 +3,13 @@ defaults:
   - dataset: gala/gymnastics
   - deformer: gala_model
 
-model_path: idle
+output_path: idle
 
 hydra:
   job:
     chdir: true
   run:
-    dir: "outputs/${model_path}"
+    dir: "outputs/${output_path}"
 
 num_workers: 1
 max_sh_degree: 2

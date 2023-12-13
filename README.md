@@ -59,12 +59,12 @@ python test.py --config-name <main config file name> dataset=<path to dataset co
 
 To animate the trained model at the novel poses, run
 ```bash
-python test.py --config-name animate.yaml model_path=<path to output model> dataset=<path to animation dataset config file>
+python test.py --config-name animate.yaml output_path=<path to output> dataset=<path to animation dataset config file>
 ```
 
 For example, to animate the model trained on the idle dataset using poses on the dribble dataset, run
 ```bash
-python test.py --config-name animate.yaml model_path=idle dataset=gala/dribble
+python test.py --config-name animate.yaml output_path=idle dataset=gala/dribble
 ```
 
 <section class="section" id="BibTeX">
