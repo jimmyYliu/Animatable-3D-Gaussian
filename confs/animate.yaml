@@ -1,0 +1,39 @@
+defaults:
+  - _self_
+  - dataset: gala/gymnastics
+  - deformer: gala_model
+
+model_path: idle
+
+hydra:
+  job:
+    chdir: true
+  run:
+    dir: "outputs/${model_path}"
+
+num_workers: 1
+max_sh_degree: 2
+max_freq: 4
+use_point_color: False
+use_point_displacement: False
+enable_ambient_occlusion: False
+encoder_type: "hash"
+
+lambda_dssim: 0.2
+
+training_args:
+  weights_lr: 0
+  joint_lr: 0.0005
+  opacity_lr: 0.05
+  scaling_lr: 0.001
+  rotation_lr: 0
+  ao_lr: 0.005
+  displacement_lr: 0.01
+  displacement_encoder_lr: 0.0001
+  shs_lr: 0.0025
+  sh_encoder_lr: 0.0005
+
+trainer_args:
+  max_epochs: 10
+  check_val_every_n_epoch: 5
+  devices: [0]

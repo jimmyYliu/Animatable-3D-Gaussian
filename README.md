@@ -37,7 +37,7 @@ We use PeopleSnapshot and GalaBasketball datasets and correspoding template body
 To train a scene, run
 
 ```bash
-python3 ./train.py --config-name config_path=<path to main config file> dataset=<path to dataset config file>
+python3 ./train.py --config-name <main config file name> dataset=<path to dataset config file>
 ```
 
 For the PeopleSnapshot dataset, run
@@ -52,9 +52,19 @@ python train.py --config-name gala.yaml dataset=gala/idle
 
 ## Test
 
-To test the model performance on the test set, run
+To test the trained model performance on the test set, run
 ```bash
-python test.py --config-name config_path=<path to main config file> dataset=<path to dataset config file>
+python test.py --config-name <main config file name> dataset=<path to dataset config file>
+```
+
+To animate the trained model at the novel poses, run
+```bash
+python test.py --config-name animate.yaml model_path=<path to output model> dataset=<path to animation dataset config file>
+```
+
+For example, to animate the model trained on the idle dataset using poses on the dribble dataset, run
+```bash
+python test.py --config-name animate.yaml model_path=idle dataset=gala/dribble
 ```
 
 <section class="section" id="BibTeX">
