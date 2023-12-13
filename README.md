@@ -37,7 +37,7 @@ We use PeopleSnapshot and GalaBasketball datasets and correspoding template body
 To train a scene, run
 
 ```bash
-python3 train.py --config-name <main config file name> dataset=<path to dataset config file>
+python train.py --config-name <main config file name> dataset=<path to dataset config file>
 ```
 
 For the PeopleSnapshot dataset, run
