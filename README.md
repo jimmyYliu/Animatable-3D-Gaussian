@@ -1,6 +1,6 @@
 # Animatable 3D Gaussian
 Yang Liu*, Xiang Huang*, Minghan Qin, Qinwei Lin, Haoqian Wang (* indicates equal contribution)<br>
-| [Webpage](https://jimmyyliu.github.io/Animatable-3D-Gaussian/) | [Full Paper](https://arxiv.org/pdf/2311.16482.pdf)
+## | [Webpage](https://jimmyyliu.github.io/Animatable-3D-Gaussian/) | [Arxiv](https://arxiv.org/pdf/2311.16482.pdf)
 
 ![Image text](assets/cover.png)
 Abstract: *Neural radiance fields are capable of reconstructing high-quality drivable human avatars but are expensive to train and render and not suitable for multi-human scenes with complex shadows. To reduce consumption, we propose Animatable 3D Gaussian, which learns human avatars from input images and poses. We extend 3D Gaussians to dynamic human scenes by modeling a set of skinned 3D Gaussians and a corresponding skeleton in canonical space and deforming 3D Gaussians to posed space according to the input poses. We introduce a multi-head hash encoder for pose-dependent shape and appearance and a time-dependent ambient occlusion module to achieve high-quality reconstructions in scenes containing complex motions and dynamic shadows. On both novel view synthesis and novel pose synthesis tasks, our method achieves higher reconstruction quality than InstantAvatar with less training time (1/60), less GPU memory (1/4), and faster rendering speed (7x). Our method can be easily extended to multi-human scenes and achieve comparable novel view synthesis results on a scene with ten people in only 25 seconds of training.*
@@ -70,11 +70,12 @@ python test.py --config-name animate.yaml output_path=idle dataset=gala/dribble
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{liu2023animatable,
-  title={Animatable 3D Gaussian: Fast and High-Quality Reconstruction of Multiple Human Avatars},
+    <pre><code>@inproceedings{liu2024animatable,
+  title={Animatable 3d gaussian: Fast and high-quality reconstruction of multiple human avatars},
   author={Liu, Yang and Huang, Xiang and Qin, Minghan and Lin, Qinwei and Wang, Haoqian},
-  journal={arXiv preprint arXiv:2311.16482},
-  year={2023}
+  booktitle={Proceedings of the 32nd ACM International Conference on Multimedia},
+  pages={1120--1129},
+  year={2024}
 }</code></pre>
   </div>
 </section>
