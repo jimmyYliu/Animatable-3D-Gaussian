@@ -69,7 +69,7 @@ python test.py --config-name animate.yaml output_path=idle dataset=gala/dribble
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h2 class="title">Citation</h2>
     <pre><code>@inproceedings{liu2024animatable,
   title={Animatable 3d gaussian: Fast and high-quality reconstruction of multiple human avatars},
   author={Liu, Yang and Huang, Xiang and Qin, Minghan and Lin, Qinwei and Wang, Haoqian},
